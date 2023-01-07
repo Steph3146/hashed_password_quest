@@ -2,6 +2,10 @@ require("dotenv").config();
 
 const express = require("express");
 
+const { hashPassword } = require("./auth.js");
+
+app.post("/api/users", hashPassword, userHandlers.postUser);
+
 const app = express();
 
 app.use(express.json());
